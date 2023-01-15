@@ -10,11 +10,14 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["ES2017", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@file-upload-demo/file-upload": ["libs/file-upload/src/index.ts"],
+      "@rgolea/simple-custom-control": ["libs/custom-control/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

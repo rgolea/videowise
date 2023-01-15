@@ -1,0 +1,9 @@
+<div class="h-full w-full flex justify-center align-middle p-8">
+  <div>
+    <form [formGroup]="form" (submit)="uploadFiles()">
+      <file-upload formControlName="files"></file-upload>
+      <br>
+      <button class="btn btn-block" [disabled]="form.invalid">Submit</button>
+    </form>
+  </div>
+</div>
