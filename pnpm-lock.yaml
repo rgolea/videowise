@@ -23,7 +23,8 @@ specifiers:
   '@nestjs/platform-express': ^9.0.0
   '@nestjs/schematics': ^9.0.0
   '@nestjs/testing': ^9.0.0
-  '@ngxs/store': ^3.7.6
+  '@ngxs/logger-plugin': 3.7.6-dev.master-4d7e301
+  '@ngxs/store': 3.7.6-dev.master-4d7e301
   '@nrwl/angular': 15.5.1
   '@nrwl/cypress': 15.5.1
   '@nrwl/eslint-plugin-nx': 15.5.1
@@ -87,7 +88,8 @@ dependencies:
   '@nestjs/mapped-types': 1.2.0_ejjx6q7ue32bc24a7sespjpcyu
   '@nestjs/mongoose': 9.2.1_dbpjeti6c7nvvzrl2soyqvptia
   '@nestjs/platform-express': 9.2.1_hjcqpoaebdr7gdo5hgc22hthbe
-  '@ngxs/store': 3.7.6_aagesspd2v74l3fghrnm7zkpie
+  '@ngxs/logger-plugin': 3.7.6-dev.master-4d7e301_jifwwm6bc2otdm3ddez7idully
+  '@ngxs/store': 3.7.6-dev.master-4d7e301_aagesspd2v74l3fghrnm7zkpie
   '@nrwl/angular': 15.5.1_f4b3pdo6v2vbfmtqr744svuzmi
   class-transformer: 0.5.1
   class-validator: 0.14.0
@@ -3458,15 +3460,28 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@ngxs/store/3.7.6_aagesspd2v74l3fghrnm7zkpie:
-    resolution: {integrity: sha512-ljnrkVrO/HmDakQImWr9G2NbpbNd8MjoPI3Ad2GsIbK/Ey4psEyMGgg6jcaMyhDfDAs2Z69Q+5TVJS0GV4euMw==}
+  /@ngxs/logger-plugin/3.7.6-dev.master-4d7e301_jifwwm6bc2otdm3ddez7idully:
+    resolution: {integrity: sha512-zkXiBlHiUMdRIOFNi+hkyc4oOKxZyaOryIVZnsHOt7YARvXOgtCni+qrXcfNmRChTh50E9tvwBcyurowJvhU0w==}
+    peerDependencies:
+      '@angular/core': '>=6.1.0 <16.0.0'
+      '@ngxs/store': ^3.7.6 || ^3.7.6-dev
+      rxjs: '>=6.5.5'
+    dependencies:
+      '@angular/core': 15.1.0_rxjs@7.5.7+zone.js@0.11.8
+      '@ngxs/store': 3.7.6-dev.master-4d7e301_aagesspd2v74l3fghrnm7zkpie
+      rxjs: 7.5.7
+      tslib: 2.4.1
+    dev: false
+
+  /@ngxs/store/3.7.6-dev.master-4d7e301_aagesspd2v74l3fghrnm7zkpie:
+    resolution: {integrity: sha512-m7YB6j7zjxhAFYw08X0IGJaN6As8RLchQZsUA+GjQ6uzB9xDdpqDEI/eYQmJAMySPmdHBDURo40cuJ9c3pMLnQ==}
     peerDependencies:
       '@angular/core': '>=6.1.0 <16.0.0'
       rxjs: '>=6.5.5'
     dependencies:
       '@angular/core': 15.1.0_rxjs@7.5.7+zone.js@0.11.8
       rxjs: 7.5.7
-      tslib: 1.14.1
+      tslib: 2.4.1
     dev: false
 
   /@nodelib/fs.scandir/2.1.5:

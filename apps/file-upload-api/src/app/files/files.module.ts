@@ -5,7 +5,7 @@ import { FilesController } from './files.controller';
 
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
 import { v2 } from 'cloudinary';
-import { StoredFile, StoredFileSchema } from './models/file.model';
+import { StoredFile, StoredFileSchema } from '@file-upload-demo/model';
 import { FileService } from './services/file.service';
 import { parse as bytes } from 'bytes';
 

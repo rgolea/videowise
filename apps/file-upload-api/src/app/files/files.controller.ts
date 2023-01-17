@@ -10,15 +10,13 @@ import {
   Body,
   Put,
   Patch
-  // ParseFilePipeBuilder
 } from '@nestjs/common';
 import { FilesInterceptor } from '@nestjs/platform-express';
 
 import 'multer';
-import { CreateStoredFileDTO, FindStoredFilesQueryDTO, UpdateStoredFileDTO } from './models/file.dto';
-import { StoredFile } from './models/file.model';
-import { UploadedFile } from './models/file.types';
+import { FindStoredFilesQueryDTO, UpdateStoredFileDTO, StoredFile, UploadedFile } from '@file-upload-demo/model';
 import { FileService } from './services/file.service';
+import { v2 } from 'cloudinary';
 
 
 @Controller('files')
@@ -29,18 +27,20 @@ export class FilesController {
   ){}
 
   @Get()
-  async getFiles(@Query() query: FindStoredFilesQueryDTO) {
+  async getFiles(@Query() query: FindStoredFilesQueryDTO): Promise<StoredFile[]> {
     return this.fileService.findAll(query);
   }
 
   @Get(':id')
-  async getFile(@Param('id') id: string) {
+  async getFile(@Param('id') id: string): Promise<StoredFile> {
     return this.fileService.findOne(id);
   }
 
   @Delete(':id')
-  async deleteFile(@Param('id') id: string) {
-    return this.fileService.delete(id);
+  async deleteFile(@Param('id') id: string): Promise<StoredFile> {
+    const doc = await this.fileService.delete(id);
+    v2.uploader.destroy(doc.originalname);
+    return doc;
   }
 
   @Post()

@@ -5,6 +5,7 @@
     {
       "files": ["*.ts"],
       "rules": {
+        "@typescript-eslint/no-namespace": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {

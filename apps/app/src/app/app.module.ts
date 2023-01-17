@@ -5,18 +5,17 @@ import { NgxsModule } from '@ngxs/store';
 
 import { AppComponent } from './app.component';
 import { env } from '../environments';
+import { AppState } from './app.state';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     AppRouterModule,
     BrowserModule,
-    NgxsModule.forRoot([], {
-      developmentMode: !env.production,
-      selectorOptions: {
-        suppressErrors: false,
-        injectContainerState: false,
-      },
+    NgxsModule.forRoot([AppState], {
+      developmentMode: !env.production
     }),
+    HttpClientModule
   ],
   providers: [],
   declarations: [AppComponent],

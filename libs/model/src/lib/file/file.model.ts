@@ -25,13 +25,13 @@ export type StoredFileDocument = HydratedDocument<StoredFile>;
 export class StoredFile implements UploadedFile {
   @Expose()
   @Transform(({ value }) => value.toString())
-  _id: ObjectId;
+  _id!: ObjectId;
 
   @Expose()
   @IsString()
   @MaxLength(255)
   @Prop()
-  originalname: string;
+  originalname!: string;
 
 
   @Expose()
@@ -39,7 +39,7 @@ export class StoredFile implements UploadedFile {
   @IsNotEmpty()
   @IsMimeType()
   @Prop()
-  mimetype: string;
+  mimetype!: string;
 
   @Expose()
   @IsArray()
@@ -57,7 +57,7 @@ export class StoredFile implements UploadedFile {
     type: [String],
     default: []
   })
-  tags: string[];
+  tags!: string[];
 
   @Expose()
   @IsArray()
@@ -76,10 +76,10 @@ export class StoredFile implements UploadedFile {
     default: [],
     minlength: 1
   })
-  defaultTags: string[];
+  defaultTags!: string[];
 
   @IsUrl()
-  path: string;
+  path!: string;
 
 }
 

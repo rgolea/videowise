@@ -8,6 +8,8 @@ import { TagsInputModule } from '@file-upload-demo/tags-input'
 import { FileUploadModule } from '@file-upload-demo/file-upload'
 import { FilesEditComponent } from '../edit/files-edit.component';
 import { env } from '../../../../environments';
+import { NgxsModule } from '@ngxs/store';
+import { FileService, FileState } from '../../data-access';
 
 @NgModule({
   declarations: [
@@ -18,15 +20,17 @@ import { env } from '../../../../environments';
   imports: [
     CommonModule,
     FilesRoutingModule,
+    NgxsModule.forFeature([FileState]),
     FormsModule,
     ReactiveFormsModule,
     TagsInputModule,
     FileUploadModule,
-    NgOptimizedImage
+    NgOptimizedImage,
   ],
   exports: [],
   providers: [
-    provideCloudinaryLoader(env.CLOUDINARY_BASE)
+    provideCloudinaryLoader(env.CLOUDINARY_BASE),
+    FileService
   ],
 })
 export class FilesModule {}
