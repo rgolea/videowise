@@ -69,6 +69,6 @@ export class FileUploadComponent extends CustomControlComponent<File[]> {
 
   handleFileChange(files: File[]) {
     this.markAsTouched();
-    this.onChange(files);
+    this.update(files);
   }
 }

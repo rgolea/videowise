@@ -1,7 +1,8 @@
-import { Module } from '@nestjs/common';
+import { ClassSerializerInterceptor, Module, ValidationPipe } from '@nestjs/common';
 import { FilesModule } from './files/files.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { environment } from '../environment';
+import { APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
 
 
 @Module({
@@ -12,6 +13,15 @@ import { environment } from '../environment';
     FilesModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: ClassSerializerInterceptor
+    },
+    {
+      provide: APP_PIPE,
+      useClass: ValidationPipe
+    }
+  ],
 })
 export class AppModule {}

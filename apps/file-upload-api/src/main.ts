@@ -10,7 +10,7 @@ import { AppModule } from './app/app.module';
 import { environment } from './environment';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
   app.setGlobalPrefix(environment.PREFIX);
   await app.listen(environment.PORT);
   Logger.log(

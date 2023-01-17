@@ -1,0 +1,13 @@
+<div class="h-full w-full flex justify-center align-middle p-8">
+  <div>
+    <form [formGroup]="form" (submit)="uploadFiles()">
+      <file-upload formControlName="files"></file-upload>
+      <br />
+      <tags-input [defaultTags]="['asdf']" formControlName="tags">Preapply tags to all values</tags-input>
+      <button class="btn btn-block btn-primary" [disabled]="form.invalid">Submit</button>
+      <br>
+      <br>
+      <a class="btn btn-block" routerLink="../list">Go to list</a>
+    </form>
+  </div>
+</div>

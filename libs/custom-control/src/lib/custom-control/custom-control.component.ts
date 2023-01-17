@@ -41,4 +41,9 @@ export abstract class CustomControlComponent<T> implements ControlValueAccessor 
       this.onTouched();
     }
   }
+
+  public update(obj: T){
+    this.writeValue(obj);
+    this.onChange(obj);
+  }
 }
